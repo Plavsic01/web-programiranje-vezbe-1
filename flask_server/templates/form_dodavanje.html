@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/form.css">
     <script type="text/javascript" src="../static/script.js" defer></script>
-    <title>Zadatak 2</title>
+    <title>Dodaj Studenta</title>
 </head>
 <body>
-    <form action="" onsubmit="validation()">
+    <form action="{{ url_for('dodaj_studenta') }}" method="POST" onsubmit="validation()">
         <div>
-            <label for="index">Broj Indeksa:</label>
-            <input type="text" name="index" id="index" required>
+            <label for="broj_indeksa">Broj Indeksa:</label>
+            <input type="text" name="broj_indeksa" id="index" required>
         </div>
         <div>
             <label for="ime">Ime:</label>
@@ -24,7 +24,7 @@
         </div>
         <div>
             <label for="prosek">Prosecna Ocena:</label>
-            <input type="number" name="prosek" min="5" max="10" required oninvalid="this.setCustomValidity('Unesi ocenu od 5 do 10')"
+            <input type="number" name="prosecna_ocena" min="5" max="10" required oninvalid="this.setCustomValidity('Unesi ocenu od 5 do 10')"
             oninput="setCustomValidity('')">
         </div>
         <div>

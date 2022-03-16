@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/form.css">
+    <script type="text/javascript" src="../static/script.js" defer></script>
+    <title>Izmeni Studenta</title>
+</head>
+<body>
+    <form action="{{ url_for('izmena_studenta',id=id) }}" method="POST" onsubmit="validation()">
+        <div>
+            <label for="broj_indeksa">Broj Indeksa:</label>
+            <input type="text" name="broj_indeksa" id="index" value="{{student['broj_indeksa']}}" required>
+        </div>
+        <div>
+            <label for="ime">Ime:</label>
+            <input type="text" name="ime" value="{{student['ime']}}"  required>
+        </div>
+        <div>
+            <label for="prezime">Prezime:</label>
+            <input type="text" name="prezime" value="{{student['prezime']}}" required>
+        </div>
+        <div>
+            <label for="prosecna_ocena">Prosecna Ocena:</label>
+            <input type="number" name="prosecna_ocena" value="{{student['prosecna_ocena']}}" min="5" max="10" required oninvalid="this.setCustomValidity('Unesi ocenu od 5 do 10')"
+            oninput="setCustomValidity('')">
+        </div>
+        <div>
+            <button type="submit">Izmeni</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -5,40 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/index.css">
-    <title>Zadatak 1</title>
+    <title>Home Page</title>
 </head>
 <body>
+    <div style="text-align: center; margin: 50px;">
+        <a style="border: 2px solid black; padding:7px;border-radius: 10px;" 
+         href="{{ url_for('dodaj_studenta') }}">Dodaj novog studenta</a>
+    </div>
     <table>
             <tr>
                 <th>Broj Indeksa</th>
                 <th>Ime</th>
                 <th>Prezime</th>
                 <th>Prosecna Ocena</th>
+                <th></th>
+                <th></th>
+                
             </tr>
+            {% for student in studenti %}
             <tr>
-                <td>1234/123456</td>
-                <td>Jovan</td>
-                <td>Jovanovic</td>
-                <td>9</td>
+                <td>{{ student['broj_indeksa'] }}</td>
+                <td>{{ student['ime'] }}</td>
+                <td>{{ student['prezime'] }}</td>
+                <td>{{ student['prosecna_ocena'] }}</td>
+                <td><a href="{{ url_for('izmena_studenta',id=loop.index) }}">Izmeni</a></td>
+                <td><a href="{{ url_for('brisanje_studenta',id=loop.index) }}">Obrisi</a></td>
             </tr>
-            <tr>
-                <td>2354/232323</td>
-                <td>Nemanja</td>
-                <td>Ignjatovic</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>2321/222235</td>
-                <td>Luka</td>
-                <td>Lukic</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>2354/232334</td>
-                <td>Petar</td>
-                <td>Peric</td>
-                <td>8</td>
-            </tr>
+            {% endfor %}
     </table>
+   
 </body>
 </html>
